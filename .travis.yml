@@ -1,4 +1,15 @@
 language: node_js
 before_script:
   - npm install -g backslide
-script: build.sh
+script: ./build.sh
+cache:
+  directories:
+    - "node_modules"
+deploy:
+  provider: pages
+  local-dir: dist
+  skip-cleanup: true
+  github-token: TODO
+  keep-history: true
+  on:
+    branch: master
